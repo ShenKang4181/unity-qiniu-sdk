@@ -3,17 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Qiniu.IO;
 
-public class QiNiu : MonoBehaviour
+public static class QiNiu 
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
