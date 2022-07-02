@@ -3,7 +3,3 @@
 ## 使用
 
 ### `https://github.com/ShenKang4181/unity-qiniu-sdk.git`
-
-## 安装
-
-放到assets里就好了
