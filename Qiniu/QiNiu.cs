@@ -10,11 +10,6 @@ using UnityEngine;
 
 public static class QiNiu
 {
-    public static string ACCESS_KEY;
-    public static string SECRET_KEY;
-    public static string Bucket;
-    public static string URL;
-
     public static string GetFileHashLocal( string localFile )
     {
         return ETag.CalcHash( localFile );
@@ -22,7 +17,7 @@ public static class QiNiu
 
     public static bool IsFileExists( string key , out string hash )
     {
-        var mac = new Mac( ACCESS_KEY , SECRET_KEY );
+        var mac = new Mac( QiNiuConfig.ACCESS_KEY , QiNiuConfig.SECRET_KEY );
         var bucketManager = new BucketManager( mac );
         var statResult = bucketManager.Stat( Bucket , key );
         if ( statResult.Code == ( int ) HttpCode.OK )
@@ -44,10 +39,10 @@ public static class QiNiu
 
     public static void Upload( byte[ ] data , string saveKey )
     {
-        var mac = new Mac( ACCESS_KEY , SECRET_KEY );
+        var mac = new Mac( QiNiuConfig.ACCESS_KEY , QiNiuConfig.SECRET_KEY );
         var putPolicy = new PutPolicy
         {
-            Scope = Bucket + ":" + saveKey
+            Scope = QiNiuConfig.Bucket + ":" + saveKey
         };
         putPolicy.SetExpires( 3600 );
         var jstr = putPolicy.ToJsonString( );
@@ -59,9 +54,9 @@ public static class QiNiu
 
     public static void CdnRefresh( string key )
     {
-        var mac = new Mac( ACCESS_KEY , SECRET_KEY );
+        var mac = new Mac( QiNiuConfig.ACCESS_KEY , QiNiuConfig.SECRET_KEY );
         var cdnManager = new CdnManager( mac );
-        var urls = new string[ ] { URL + key };
+        var urls = new string[ ] { QiNiuConfig.URL + key };
         var result = cdnManager.RefreshUrls( urls );
         Debug.Log( result );
     }
