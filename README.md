@@ -1,5 +1,7 @@
 # unity-qiniu-sdk
 
-## 使用
-
-### `https://github.com/ShenKang4181/unity-qiniu-sdk.git`
+在使用之前必须把这几个赋值
+QiNiu.ACCESS_KEY = "???";
+QiNiu.SECRET_KEY = "???";
+QiNiu.Bucket = "???";
+QiNiu.URL = "???";
