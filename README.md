@@ -1,13 +1,13 @@
 # unity-qiniu-sdk
 
-在使用之前必须把这几个赋值
+新建一个脚本
 
-QiNiu.ACCESS_KEY = "???";
-
-QiNiu.SECRET_KEY = "???";
-
-QiNiu.Bucket = "???";
-
-QiNiu.URL = "???";
+public class QiNiuConfig
+{
+    public const string ACCESS_KEY = "???";
+    public const string SECRET_KEY = "???";
+    public const string Bucket = "???";
+    public const string URL = "???";
+}
 
 嘿嘿🤭
